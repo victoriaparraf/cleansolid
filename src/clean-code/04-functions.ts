@@ -74,9 +74,20 @@
     
         }
         //Continuacion
+
+        //Ortras recomendaciones
+        //Simplicidad es fundamental(faciles de leer)
+        //Funciones de tamaño reducido
+        //Funciones de una sola linea sin causar complejidad
+        //Menos de 20 lineas
+        //Evitar el uso del else
+        //Prioriza el uso de la condicional ternaria
+
         const getPayAmount = ({ isDead = false, isSeparated = true, isRetired = false }) => {
-            let result;
-            if ( isDead ) {
+
+            let result: number;  //define el tipo no lo dejes en any
+
+            if ( isDead ) { //No uses tanto el else
                 result = 1500;
             } else {
                 if ( isSeparated ) {
@@ -89,8 +100,14 @@
                     }
                 }
             }
-            
-            return result;
+
+            if( isDead ){
+                return 1500;
+            }
+            if ( isSeparated ) {
+                return 2500;
+            }
+            return isRetired ? 3000 : 4000; //condicional ternario 
         }
 
 })();
